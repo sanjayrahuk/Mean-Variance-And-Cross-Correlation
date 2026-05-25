@@ -31,57 +31,60 @@ Type your code in New Editor:
 
 ## Code:
 ```
-clear; clc; clear;
-function X = f(x)
-    X = 5 * x .* (3 + x).^2;
-end
-a = 0;
-b = 1;
-EX = intg(a, b, f);
-function Y = c(y)
-    Y = 5 * y .* (3 + y).^2;
-end
-EY = intg(a, b, c);
-mprintf("i)   Mean of X = %.2f\n     Mean of Y = %.2f\n", EX, EY);
-function X = g(x)
-    X = x.^2 .* 5 .* (3 + x).^2;
-end
-EX2 = intg(a, b, g);
-function Y = h(y)
-    Y = y.^2 .* 5 .* (3 + y).^2;
-end
-EY2 = intg(a, b, h);
-vX2 = EX2 - (EX)^2;
-vY2 = EY2 - (EY)^2;
-mprintf("ii)  Variance of X = %.6f\n     Variance of Y = %.6f\n", vX2, vY2);
-
-x= input("type in the reference sequence="); 
-y= input("type in the second sequence   =");
-
+clear; 
+clc; 
+clear;
+function X=f(x)
+z=4*(1-x)^2,
+X=x*z
+endfunction 
+a=0;
+b=1;
+EX=intg(a,b,f); 
+function y=c(y)
+z=4*(1-y)^2,
+y=y*z
+endfunction 
+EY=intg(a,b,c);
+disp(EX,"i)Mean of X =")
+disp(EY," Mean of Y =")
+function X=g(x),
+z=3*(1-x)^2,
+X=x^2*z
+endfunction 
+a=0;
+b=1;
+EX2=intg(a,b,g); 
+function Y=h(y)
+z=4*(1-y)^2,
+Y=y^2*z
+endfunction 
+EY2=intg(a,b,h);
+vX2=EX2-(EX)^2;
+vY2=EY2-(EY)^2;
+disp(vX2,"ii)Variance of X"); 
+disp(vY2," Variance of Y");
+x= input("type in the reference sequence=");
+y= input("type in the second sequence="); 
 n1=max(size(y))-1;
 n2=max(size(x))-1;
-
 r=corr(x,y,n1);
+plot2d3('gnn',r);
 
-clf();
-plot2d3(1:length(r), r);
 ```
 ## Output:
 
-![WhatsApp Image 2025-11-20 at 17 57 00_ea6ae754](https://github.com/user-attachments/assets/8fc10509-f5ce-4244-b44c-322acf05067b)
+<img width="760" height="691" alt="Screenshot 2026-05-21 135454" src="https://github.com/user-attachments/assets/0d308867-9120-4bfd-874d-0f35a4fd955b" />
+
 
 ## Calculation:
 
-![WhatsApp Image 2025-11-28 at 21 15 44_34b898f4](https://github.com/user-attachments/assets/77a5d6fb-fb4f-4396-ab41-f1f90a52ec27)
-![WhatsApp Image 2025-11-28 at 21 15 44_dba36154](https://github.com/user-attachments/assets/fda3e728-8d6a-461e-b231-af7234980436)
-![WhatsApp Image 2025-11-28 at 21 16 40_4ff50186](https://github.com/user-attachments/assets/f511df85-8c27-46f1-90a9-8ff59591fe48)
 
+i) Mean of X = 0.25 ;Mean of Y = 0.25
 
-i) Mean of X = 47.25 ;Mean of Y = 47.25
+ii) Variance of X =0.0375; Variance of Y =0.0375
 
-ii) Variance of X =-2199.6625; Variance of Y =-2199.6625
-
-Cross Correlation: Type in the reference sequence = [1 2 3 4 5 6 7 8]
+Type in the reference sequence = [1 2 3 4 5 6 7 8]
 
 Type in the second sequence = [2 1 3 5 6 3 5 9]
 
